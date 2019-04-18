@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Circuits{% endblock %}
+
+{% block main %}
+<div class="wrapper">
+<div id="background">
+    <h1 style=" text-align: center;">Tous les circuits</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>PaysDepart</th>
+                <th>VilleDepart</th>
+                <th>VilleArrivee</th>
+                <th>DureeCircuit</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for circuit in circuits %}
+            <tr>
+                <td>{{ circuit.id }}</td>
+                <td>{{ circuit.description }}</td>
+                <td>{{ circuit.paysDepart }}</td>
+                <td>{{ circuit.villeDepart }}</td>
+                <td>{{ circuit.villeArrivee }}</td>
+                <td>{{ circuit.dureeCircuit }}</td>
+                <td>
+                    <a href="{{ path('admin_circuit_show', {'id': circuit.id}) }}">show</a>
+                    <a href="{{ path('admin_circuit_edit', {'id': circuit.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div>
+    <a href="{{ path('admin_circuit_new') }}">Create new</a>
+</div>
+</div>
+ {% endblock %}

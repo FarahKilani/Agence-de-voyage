@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+   
+        
+{% block main %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+<div id="background">
+    <h1 style="text-align:center;">Circuit {{circuit.description}}</h1>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th> Programmations </th>
+         		<th> Etapes </th>
+            <tr>	
+         		
+        </thead>
+        
+        <tbody> 		
+         		<td>{{ circuit.id }}</td>
+           						
+				<td>
+				{%  for prog in circuit.programmation %}
+			      <ul>
+                    <li><a href="{{path('front_prog_show',{id: prog.id})}}">{{ prog.DateDepart|date('Y-m-d') }}</a></li>                          
+             	     
+             	
+             	</ul>
+                {% endfor %}   
+                 </td> 
+            	<td>
+            		<table>
+            			<thead>
+                    	   <tr>
+                    	       <th>Numéro</th>
+                    	        <th>Ville </th>
+                    	        <th>Nombre de jours</th>
+                    	        <th>Ciruits ayant cette étape</th>
+                    	    </tr>
+                    	</thead>
+                    	 {%  for etape in circuit.etapes %}     
+                    	<tbody>
+                    	     				
+                            <td>{{ etape.numeroEtape }}</td>
+                            <td>{{ etape.villeEtape }}</td>
+                            <td>{{ etape.nombreJours}}</td>
+                            <td>  {{ nombre }}</td>    
+                      
+                        </tbody>
+                          {% endfor %} {# etapes #}
+                        </table>
+                 </td>
+			<td>
+			<img src={{ circuit.getUrl() }} style="width:400px;width:400px;">
+           </td>
+        </tbody>
+    </table>
+    
+  
+</div>
+
+    <a href="{{ path('frontoffice_home') }}">retour à l'accueil</a>
+    
+  
+{% endblock %}

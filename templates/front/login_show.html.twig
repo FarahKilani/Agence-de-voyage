@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Signup user{% endblock %}
+
+{% block main %}
+    <h1>Signup user</h1>
+
+    {{ include('front/_form.html.twig', {'button_label': 'Signup'}) }}
+
+    <a href="{{ path('circuits') }}">back to list</a>
+
+{% endblock %}

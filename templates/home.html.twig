@@ -1,0 +1,62 @@
+{# templates/home.html.twig #}
+
+{# Template de la page d'accueil de l'application #}
+
+{% extends "baselayout.html.twig" %}
+
+{% block title %}{{ parent() }} - Welcome{% endblock %}
+{% block stylesheets %}
+<!-- Bootstrap -->
+<link rel="stylesheet"	href="css/fonts/css/monfichier.css">
+<link rel="stylesheet"	href="css/fonts/css/bootstrap-darkly1.css">
+{% endblock %}
+{% block main %}
+{{ parent() }}
+{#
+<div class="bloc">
+	<h1>Welcome</h1>
+<p>
+	Notre agence de voyage vous emporte aussi loin que vous voulez!
+</p>
+
+<a  href="{{ path('fos_user_registration_register') }}" style="background:rgb(255,255,255,0.6); width: wrap_content; padding: 3px; border:solid white;">Signup now!!!</a>
+<br/> <br/>
+</div>
+{#
+<div id="slider" style="width=100%; height=300px;">
+<img class="mySlides" src="http://avante.biz/wp-content/uploads/Trip-Wallpapers/Trip-Wallpapers-016.jpg">
+<img class="mySlides" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/s8d87d0b066f9e82e/image/i1334cbdc25f05b51/version/1538582372/image.jpg">
+<img class="mySlides" src="https://s27135.pcdn.co/wp-content/uploads/2017/06/USA-road-trip-for-nature-lovers-visit-Arches-Yellowstone-Aspen-Rocky-Mountains-National-Park-and-more-878x585.jpg.optimal.jpg">
+<img class="mySlides" src="http://mamieboude.com/wp-content/uploads/2016/07/Ireland-roadtrip-Mamie-Boude-10.jpg">
+</div>
+#}
+
+<div id="slider">
+<ul class="slideshow">
+  <li><span>Image 01</span><<div class="bloc"><div><h3 >Découvrez le monde entier</h3></div></li>
+  <li><span>Image 01</span></li>
+  <li><span>Image 03</span></li>
+  <li><span>Image 04</span></li>
+  <li><span>Image 05</span></li>
+  <li><span>Image 06</span></li>
+</ul>
+
+  <div class="container">
+    <header>
+    {% block menu %}
+				{# Collect the nav links, forms, and other content for toggling #}
+				<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-light text-white">
+					{{ knp_menu_render('main', {'currentClass': 'active'}) }}
+					{{   knp_menu_render('user', {'currentClass': 'active'}) }}
+				</nav>
+	{% endblock %} {# menu #}    
+  </header>
+   <div class="bloc">
+   	  <h1> Welcome!</h1>
+      <p><span>Notre agence de voyage vous emporte aussi loin que vous voulez!</span></p>    
+      <a  href="{{ path('fos_user_registration_register') }}" style="background:rgb(177, 178, 181,0.5); width: wrap_content; padding: 3px; border:solid white;">Signup now!!!</a>
+  </div>
+
+</div>
+{% endblock %}
+

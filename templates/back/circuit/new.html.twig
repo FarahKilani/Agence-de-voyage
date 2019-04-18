@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Circuit{% endblock %}
+
+{% block main %}
+{{ parent() }}
+
+<div id="background" style="text-align: center; width:min-content;">
+    <h1>Create new Circuit</h1>
+
+    {{ include('back/circuit/_form.html.twig') }}
+
+    <a href="{{ path('admin_circuit_index') }}">back to list</a>
+</div>    
+{% endblock %}

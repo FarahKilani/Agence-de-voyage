@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Circuit{% endblock %}
+
+{% block main %}
+<div class="wrapper">
+<div id="background" style="text-align: center; width:90%;">
+    <h1>Edit Circuit</h1>
+
+    {{ include('back/circuit/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('back/circuit/_delete_form.html.twig',{'button_label': 'Delete'}) }}
+
+    <a href="{{ path('admin_circuit_index') }}">back to list</a>
+
+  
+</div>
+</div>
+{% endblock %}

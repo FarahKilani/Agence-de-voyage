@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Circuit{% endblock %}
+
+{% block main %}
+  <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+<div id="background" style="text-align: center; width:90%; height: auto;">
+
+    <h1>Circuit : {{ circuit.description }}</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ circuit.id }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ circuit.description }}</td>
+            </tr>
+            <tr>
+                <th>PaysDepart</th>
+                <td>{{ circuit.paysDepart }}</td>
+            </tr>
+            <tr>
+                <th>VilleDepart</th>
+                <td>{{ circuit.villeDepart }}</td>
+            </tr>
+            <tr>
+                <th>VilleArrivee</th>
+                <td>{{ circuit.villeArrivee }}</td>
+            </tr>
+            <tr>
+                <th>DureeCircuit</th>
+                <td>{{ circuit.dureeCircuit }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+     {{ include('back/circuit/_delete_form.html.twig',{'button_label': 'Delete'}) }}
+    
+    <a href="{{ path('admin_circuit_index') }}">back to list</a>
+
+    <a href="{{ path('admin_circuit_edit', {'id': circuit.id}) }}">edit</a>
+    </br>
+    
+    <img src={{ circuit.getUrl() }} style="width:400px;width:400px;">
+
+  </div> 
+</div>    
+{% endblock %}

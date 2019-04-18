@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+{% block head %}
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="/css/fonts/css/bootstrap-darkly.css">
+		<script src="/js/bootstrap.min.js"></script>
+		
+        
+    </head>
+ {% endblock %}   
+ 
+ 
+    <body>
+        {% block body %}       
+        <header> 
+        {% block menu %}
+        	
+				{# Collect the nav links, forms, and other content for toggling #}
+        			<nav class="navbar navbar-expand-md navbar-dark bg-light text-white" style="opacity: 50%;S">
+					{{ knp_menu_render('main', {'currentClass': 'active'}) }}
+					{{   knp_menu_render('user', {'currentClass': 'active'}) }}
+				</nav>
+				{#
+        		<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light" >
+            		<div  id="admin-navbar-collapse-1">
+            		
+                   {{ knp_menu_render('main', { 'currentClass': 'active' }) }}
+                   {{ knp_menu_render('user', {'currentClass': 'active'}) }}
+                	</div>
+                	</nav>
+				#}
+        {% endblock %}
+        </header>  
+        <div id="main">
+        {% block main %}   
+        {% endblock %} {# main #}
+         </div>
+         
+		 {% endblock %} {# body #}
+
+	{% block footer %}
+	{% endblock %} {# footer #}
+</body>
+	{% block javascripts %}
+	{% endblock %} {# javascripts #}
+	{% block custompage_script %}
+    {% endblock %} {# custompage_scripts #}
+</html>
+

@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+   
+        
+{% block main %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+<div id="background">	
+    <h1>Programmation {{programmation.id}}</h1>
+    <table class="table">
+            			<thead>
+                    	  
+                    	       <th>Date     </th>
+                    	        <th>Prix    </th>
+                    	        <th>Nombre de passagers    </th>
+                    	  
+                    	</thead>
+                    	
+                    	<tbody>
+                    	
+                    	<td> {{ programmation.DateDepart|date('Y-m-d') }}</td>
+                    	<td> {{ programmation.prix}}</td>
+                    	<td> {{ programmation.nombrePersonnes }}</td>
+                    	
+                    	</tbody>
+    
+    		</table>
+    
+<br> </br>
+    <a href="{{ path('frontoffice_home') }}">retour à l'accueil</a>
+    
+</div>  
+{% endblock %}
